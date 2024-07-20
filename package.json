@@ -1,0 +1,22 @@
+{
+  "name": "new-playwright-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dealwithsloth/new-playwright-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dealwithsloth/new-playwright-playground/issues"
+  },
+  "homepage": "https://github.com/dealwithsloth/new-playwright-playground#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.45.2",
+    "@types/node": "^20.14.11"
+  }
+}
