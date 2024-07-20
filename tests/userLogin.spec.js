@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const HomePage = require('../pageObjects/homePage');
 const LoginPage = require('../pageObjects/loginPage');
 const MyAccountSection = require('../pageObjects/myAccountSection');
-const registerData = require('../fixtures/test.data.json');
+const testData = require('../fixtures/test.data.json');
 
 test.describe('User login test', () => {
     let homePage;
@@ -30,8 +30,8 @@ test.describe('User login test', () => {
     });
 
     test('Login - wrong credentials', async ({ page }) => {
-        await loginPage.emailInput.fill(registerData.userCorrect.mailAddress);
-        await loginPage.passwordInput.fill(registerData.userIncorrect.password);
+        await loginPage.emailInput.fill(testData.userCorrect.mailAddress);
+        await loginPage.passwordInput.fill(testData.userIncorrect.password);
         await expect(loginPage.logInButton).toBeVisible();
         await loginPage.logInButton.click();
         await expect(loginPage.errorMessage).toBeVisible();
@@ -46,8 +46,8 @@ test.describe('User login test', () => {
     });
 
     test('Login - correct credentials, success and logout', async ({ page }) => {
-        await loginPage.emailInput.fill(registerData.userCorrect.mailAddress);
-        await loginPage.passwordInput.fill(registerData.userCorrect.password);
+        await loginPage.emailInput.fill(testData.userCorrect.mailAddress);
+        await loginPage.passwordInput.fill(testData.userCorrect.password);
         await expect(loginPage.logInButton).toBeVisible();
         await loginPage.logInButton.click();
         await expect(myAccountSection.myAccountContent).toBeVisible();
