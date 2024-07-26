@@ -22,14 +22,14 @@ test.describe('User login test', () => {
         await expect(loginPage.returningCustomerCardBody).toContainText('Returning Customer');
     });
 
-    test('Login - empty fields', async ({ page }) => {
+    test('Login - empty fields', async () => {
         await expect(loginPage.logInButton).toBeVisible();
         await loginPage.logInButton.click();
         await expect(loginPage.errorMessage).toBeVisible();
         await expect(loginPage.errorMessage).toContainText('Warning');
     });
 
-    test('Login - wrong credentials', async ({ page }) => {
+    test('Login - wrong credentials', async () => {
         await loginPage.emailInput.fill(testData.userCorrect.mailAddress);
         await loginPage.passwordInput.fill(testData.userIncorrect.password);
         await expect(loginPage.logInButton).toBeVisible();
@@ -38,14 +38,14 @@ test.describe('User login test', () => {
         await expect(loginPage.errorMessage).toContainText('No match for E-Mail Address and/or Password.');
     });
 
-    test('Login - forgotten password link', async ({ page }) => {
+    test('Login - forgotten password link', async () => {
         await expect(loginPage.forgottenPasswordLink).toBeVisible();
         await loginPage.forgottenPasswordLink.click();
         await expect(loginPage.pageTitle).toBeVisible();
         await expect(loginPage.pageTitle).toContainText('Forgot Your Password?');
     });
 
-    test('Login - correct credentials, success and logout', async ({ page }) => {
+    test('Login - correct credentials, success and logout', async () => {
         await loginPage.emailInput.fill(testData.userCorrect.mailAddress);
         await loginPage.passwordInput.fill(testData.userCorrect.password);
         await expect(loginPage.logInButton).toBeVisible();
