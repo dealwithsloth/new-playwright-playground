@@ -36,12 +36,6 @@ test.describe('Cart section tests', () => {
         await expect(cart.checkoutButton).toBeVisible();
         await cart.checkoutButton.scrollIntoViewIfNeeded();
         await cart.checkoutButton.click({ force: true });
-        // await expect(myAccountSection.orderHistoryLink).toBeVisible();
-        // await expect(myAccountSection.downloadsLink).toBeVisible();
-        // // await expect(myAccountSection.rewardPointsLink).toBeVisible();
-        // // await expect(myAccountSection.returnRequestsHistoryLink).toBeVisible();
-        // // await expect(myAccountSection.yourTransactionsLink).toBeVisible();
-        // // await expect(myAccountSection.recurringPaymentsLink).toBeVisible();
     });
 
 });
