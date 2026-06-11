@@ -37,5 +37,4 @@ test.describe('Cart section tests', () => {
         await cart.checkoutButton.scrollIntoViewIfNeeded();
         await cart.checkoutButton.click({ force: true });
     });
-
 });
