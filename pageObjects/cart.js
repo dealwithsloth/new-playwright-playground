@@ -5,7 +5,7 @@ class Cart {
         this.productPhoto = page.locator(':nth-child(1) > .text-center > a > .img-thumbnail');
         this.productName = page.locator('form > .table-responsive > .table > tbody > :nth-child(1) > :nth-child(2) > a');
         this.cartQuantityInputField = page.locator(':nth-child(1) > :nth-child(4) > .input-group > .form-control');
-        this.checkoutButton = page.locator("//a[.='Checkout']");
+        this.checkoutButton = page.locator('.form-row .btn-secondary');
         this.continueShoppingButton = page.locator("//a[.='Continue Shopping']");
         this.updateCartQuantityButton = page.locator('.input-group-append > .btn-primary > .fas');
         this.deleteFromCartButton = page.locator('.fa-times-circle');

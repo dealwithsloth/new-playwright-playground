@@ -4,6 +4,7 @@ const RegisterPage = require('../pageObjects/registerPage');
 const MyAccountSection = require('../pageObjects/myAccountSection');
 const Cart = require('../pageObjects/cart');
 const LoginPage = require('../pageObjects/loginPage');
+const ProductPage = require('../pageObjects/productPage');
 
 async function login(page) {
   const registerPage = new RegisterPage(page);
@@ -33,4 +34,17 @@ async function clearCart(page) {
   await expect(cart.emptyCartContent).toContainText('Your shopping cart is empty!');
 }
 
-module.exports = { login, clearCart };
+async function addSomeProductToCart(page) {
+  const productPage = new ProductPage(page);
+
+    await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=product/product&path=17&product_id=47');
+    await expect(productPage.availabilityBadgeInStock).toBeVisible();
+    await expect(productPage.availabilityBadgePreOrder).not.toBeVisible();
+    await expect(productPage.addToCartButton).toBeVisible();
+    await productPage.addToCartButton.click();
+    await expect(productPage.successMessageBody).toBeVisible();
+    await expect(productPage.successMessageBody).toContainText('Success: You have added');
+  }
+
+
+module.exports = { login, clearCart, addSomeProductToCart };
